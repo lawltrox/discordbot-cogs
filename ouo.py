@@ -1,4 +1,5 @@
 import discord
+import asyncio
 import urllib.request
 import requests
 from discord.ext import commands
@@ -15,6 +16,7 @@ class Shorten:
         handle = urllib.request.Request(url2, headers={'User-Agent': 'Mozilla/5.0'})
         html = urllib.request.urlopen(handle).read().decode('utf-8')
         await self.bot.say("Shortened: " + html)
+        await asyncio.sleep(1)
 
 def setup(bot):
     bot.add_cog(Shorten(bot))
