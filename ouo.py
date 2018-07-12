@@ -11,11 +11,10 @@ class Shorten:
     @commands.command()
     async def ouo(self, url):
 
-        url = ("http://ouo.io/api/B3Nm9g8L?s=" + url)
-        handle = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        html = urllib.request.urlopen(handle).read()
+        url2 = ("http://ouo.io/api/B3Nm9g8L?s=" + url)
+        handle = urllib.request.Request(url2, headers={'User-Agent': 'Mozilla/5.0'})
+        html = urllib.request.urlopen(handle).read().decode('utf-8')
         await self.bot.say("Shortened: " + html)
-
 
 def setup(bot):
     bot.add_cog(Shorten(bot))
